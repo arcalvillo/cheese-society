@@ -1,6 +1,6 @@
 /* Shared chrome: header, nav, footer. Also site-wide view transitions. */
 
-/* Header: logo + site title, side by side. */
+/* Header: logo & site title side by side. */
 body > header {
   display: flex;
   align-items: center;
@@ -48,7 +48,7 @@ body > nav a[aria-current="page"] {
   text-decoration-thickness: var(--underline-width);
 }
 
-/* Footer: centered small print with a top rule */
+/* Footer: centered small print w a top rule */
 body > footer {
   padding: var(--space-2) var(--space-3);
   border-block-start: var(--border);

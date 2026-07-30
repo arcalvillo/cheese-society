@@ -42,26 +42,46 @@
       <ul class="family-links">
         <li>
           <a href="fresh.html">
-            <img src="../images/cheese-fresh.svg" alt="" width="80" height="80">
-            <strong>Fresh</strong> — young and mild. Mozzarella, ricotta, chevre. Eat within days.
+            <figure>
+              <img src="../images/cheese-fresh.svg" alt="" width="80" height="80">
+              <figcaption>
+                <strong>Fresh</strong>
+                <p>Fresh cheeses are young and mild. They include mozzarella, ricotta, and chevre. Eat these within days.</p>
+              </figcaption>
+            </figure>
           </a>
         </li>
         <li>
           <a href="soft.html">
-            <img src="../images/cheese-soft.svg" alt="" width="80" height="80">
-            <strong>Soft-ripened</strong> — a white bloomy rind. Brie and Camembert. The rind is edible and you should eat it.
+            <figure>
+              <img src="../images/cheese-soft.svg" alt="" width="80" height="80">
+              <figcaption>
+                <strong>Soft-ripened</strong>
+                <p>Soft-ripened cheeses grow a white bloomy rind. Brie and Camembert are the classic examples. The rind is edible and you should eat it.</p>
+              </figcaption>
+            </figure>
           </a>
         </li>
         <li>
           <a href="blue.html">
-            <img src="../images/cheese-blue.svg" alt="" width="80" height="80">
-            <strong>Blue</strong> — veined with <em>Penicillium roqueforti</em>. Roquefort, Gorgonzola, Stilton. Salty, sharp, divisive.
+            <figure>
+              <img src="../images/cheese-blue.svg" alt="" width="80" height="80">
+              <figcaption>
+                <strong>Blue</strong>
+                <p>Blue cheeses are veined with <em>Penicillium roqueforti</em>. Roquefort, Gorgonzola, and Stilton lead this family. They are salty, sharp, and divisive.</p>
+              </figcaption>
+            </figure>
           </a>
         </li>
         <li>
           <a href="hard.html">
-            <img src="../images/cheese-hard.svg" alt="" width="80" height="80">
-            <strong>Hard</strong> — aged for months or years. Parmigiano-Reggiano, aged Gouda, Comte. Crystals of crunch, deep nutty flavor.
+            <figure>
+              <img src="../images/cheese-hard.svg" alt="" width="80" height="80">
+              <figcaption>
+                <strong>Hard</strong>
+                <p>Hard cheeses are aged for months or years. Parmigiano-Reggiano, aged Gouda, and Comte reward the wait with crystals of crunch and deep, nutty flavor.</p>
+              </figcaption>
+            </figure>
           </a>
         </li>
       </ul>
@@ -71,13 +91,27 @@
       <p>As the writer Clifton Fadiman put it, cheese is milk's leap toward immortality.</p>
 
       <h2>Try It Yourself</h2>
-      <p>Which of these have you tasted?</p>
-      <ul>
-        <li>Brie</li>
-        <li>Roquefort</li>
-        <li>Aged Gouda</li>
+      <p>Which of these have you tasted? Check them off as you go.</p>
+      <ul class="taste-check">
+        <li><label><input type="checkbox"> Brie</label></li>
+        <li><label><input type="checkbox"> Roquefort</label></li>
+        <li><label><input type="checkbox"> Aged Gouda</label></li>
       </ul>
-      <p>Tell us your favorite cheese and we will add it to the guide.</p>
+
+      <section class="suggest-box">
+        <input type="checkbox" id="suggest-submit" class="submit-toggle">
+
+        <form class="suggest-form">
+          <label for="favorite">Tell us your favorite cheese and we will add it to the guide:</label>
+          <input id="favorite" type="text" placeholder="e.g. Comte">
+          <label for="suggest-submit" class="suggest-button">Submit suggestion</label>
+        </form>
+
+        <section class="suggest-thanks">
+          <p><strong>Thanks!</strong> Your suggestion has been recorded in the Society's ledger. See you at the next tasting.</p>
+          <label for="suggest-submit" class="suggest-reset">Submit another</label>
+        </section>
+      </section>
     </article>
   </main>
 

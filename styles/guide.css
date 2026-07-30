@@ -1,3 +1,5 @@
+/* Guide index — normal flow (demo 01). Centered reading column. */
+
 main {
   padding: var(--space-3);
 }
@@ -10,11 +12,12 @@ main > article {
   background: var(--panel);
 }
 
-/* The family links list — each family is a mini-card with image + text. */
+/* ---------- Family links list ---------- */
+
 .family-links {
   list-style: none;
   padding: 0;
-  margin-block: var(--space-2);
+  margin-block: var(--space-3);
 }
 
 .family-links li {
@@ -24,23 +27,51 @@ main > article {
 }
 
 .family-links a {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
+  display: block;
   padding: var(--space-2);
   text-decoration: none;
+  color: var(--ink);
 }
 
-.family-links a:hover { background: var(--panel); }
+.family-links a:hover {
+  background: var(--panel);
+}
 
-.family-links img { display: block; flex-shrink: 0; }
+.family-links figure {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+}
 
-/* Give each family image a unique view-transition-name so it can morph
-   into the corresponding family page's hero image. */
+.family-links img {
+  display: block;
+  flex-shrink: 0;
+}
+
+.family-links figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.family-links strong {
+  font-size: var(--text-l);
+}
+
+.family-links p {
+  margin: 0;
+  font-size: var(--text-m);
+}
+
+/* View-transition names for the guide-to-detail morph. */
 .family-links a[href="fresh.html"] img { view-transition-name: cheese-fresh; }
 .family-links a[href="soft.html"]  img { view-transition-name: cheese-soft; }
 .family-links a[href="blue.html"]  img { view-transition-name: cheese-blue; }
 .family-links a[href="hard.html"]  img { view-transition-name: cheese-hard; }
+
+/*  About the Guide aside  */
 
 aside {
   max-width: var(--measure);
@@ -48,4 +79,115 @@ aside {
   padding: var(--space-3);
   background: var(--panel);
   border-block-start: var(--border);
+}
+
+/*  Try It Yourself checkboxes  */
+
+.taste-check {
+  list-style: none;
+  padding: 0;
+  margin-block: var(--space-2);
+}
+
+.taste-check li {
+  margin-block-end: var(--space-1);
+}
+
+.taste-check label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  border: var(--border);
+  background: var(--panel);
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.taste-check label:hover {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.taste-check label:has(input:checked) {
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: line-through;
+}
+
+/* suggest-a-cheese fake submit form since NO JS allowed :(      */
+
+.suggest-box {
+  margin-block-start: var(--space-3);
+  padding: var(--space-3);
+  border: var(--border);
+  border-block-start: var(--rule);
+  background: var(--paper);
+}
+
+/* Hide the state-tracking checkbox itself. */
+.submit-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.suggest-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.suggest-form input[type="text"] {
+  padding: var(--space-1) var(--space-2);
+}
+
+.suggest-button {
+  align-self: flex-start;
+  padding: var(--space-1) var(--space-3);
+  background: var(--accent);
+  color: var(--paper);
+  font-weight: 700;
+  border: var(--border);
+  border-block-end-width: 4px;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.15s;
+}
+
+.suggest-button:hover {
+  background: var(--ink);
+  transform: translateY(-2px);
+}
+
+.suggest-button:active {
+  transform: translateY(0);
+  border-block-end-width: 1px;
+}
+
+/* Thank you panel is hidden until the toggle is checked */
+.suggest-thanks {
+  display: none;
+}
+
+.suggest-thanks .suggest-reset {
+  display: inline-block;
+  margin-block-start: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  background: var(--panel);
+  border: var(--border);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.suggest-thanks .suggest-reset:hover {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+/* Flip which panel is visible when the checkbox is checked*/
+.suggest-box:has(.submit-toggle:checked) .suggest-form {
+  display: none;
+}
+.suggest-box:has(.submit-toggle:checked) .suggest-thanks {
+  display: block;
 }
