@@ -1,4 +1,4 @@
-/* Guide index — normal flow (demo 01). Centered reading column. */
+/* Guide index — normal flow only (demo 01). No flex, no grid. */
 
 main {
   padding: var(--space-3);
@@ -23,12 +23,14 @@ main > article {
 .family-links li {
   margin-block-end: var(--space-2);
   border: var(--border);
+  border-radius: var(--radius);
   background: var(--paper);
+  overflow: hidden;
 }
 
 .family-links a {
   display: block;
-  padding: var(--space-2);
+  padding: var(--space-3);
   text-decoration: none;
   color: var(--ink);
 }
@@ -38,31 +40,42 @@ main > article {
 }
 
 .family-links figure {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
   margin: 0;
   padding: 0;
 }
 
+/* Float the image left so the caption wraps around it. */
 .family-links img {
-  display: block;
-  flex-shrink: 0;
+  float: left;
+  margin-inline-end: var(--space-3);
+  padding: var(--space-1);
+  background: var(--paper);
+  border: var(--border);
+  border-radius: var(--radius);
 }
 
+/* Contain the wrapping so text stays beside the image. */
 .family-links figcaption {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
+  overflow: hidden;
 }
 
 .family-links strong {
+  display: block;
   font-size: var(--text-l);
+  color: var(--accent-dark);
+  margin-block-end: var(--space-1);
 }
 
 .family-links p {
   margin: 0;
   font-size: var(--text-m);
+}
+
+/* Clear the float after each card so cards stack cleanly. */
+.family-links li::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 /* View-transition names for the guide-to-detail morph. */
@@ -71,7 +84,7 @@ main > article {
 .family-links a[href="blue.html"]  img { view-transition-name: cheese-blue; }
 .family-links a[href="hard.html"]  img { view-transition-name: cheese-hard; }
 
-/*  About the Guide aside  */
+/* ---------- About the Guide aside ---------- */
 
 aside {
   max-width: var(--measure);
@@ -81,7 +94,7 @@ aside {
   border-block-start: var(--border);
 }
 
-/*  Try It Yourself checkboxes  */
+/* ---------- Try It Yourself checkboxes ---------- */
 
 .taste-check {
   list-style: none;
@@ -94,14 +107,17 @@ aside {
 }
 
 .taste-check label {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-1);
+  display: inline-block;
   padding: var(--space-1) var(--space-2);
   border: var(--border);
   background: var(--panel);
   cursor: pointer;
   font-weight: 400;
+}
+
+.taste-check label input {
+  margin-inline-end: var(--space-1);
+  vertical-align: middle;
 }
 
 .taste-check label:hover {
@@ -115,7 +131,7 @@ aside {
   text-decoration: line-through;
 }
 
-/* suggest-a-cheese fake submit form since NO JS allowed :(      */
+/* ---------- Suggest a cheese fake submit form (no JS) ---------- */
 
 .suggest-box {
   margin-block-start: var(--space-3);
@@ -132,18 +148,19 @@ aside {
   pointer-events: none;
 }
 
-.suggest-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
+.suggest-form label,
+.suggest-form input[type="text"],
+.suggest-form .suggest-button {
+  display: block;
+  margin-block-end: var(--space-2);
 }
 
 .suggest-form input[type="text"] {
+  width: 100%;
   padding: var(--space-1) var(--space-2);
 }
 
 .suggest-button {
-  align-self: flex-start;
   padding: var(--space-1) var(--space-3);
   background: var(--accent);
   color: var(--paper);
@@ -152,6 +169,7 @@ aside {
   border-block-end-width: 4px;
   cursor: pointer;
   transition: transform 0.1s, background 0.15s;
+  width: fit-content;
 }
 
 .suggest-button:hover {
@@ -164,7 +182,7 @@ aside {
   border-block-end-width: 1px;
 }
 
-/* Thank you panel is hidden until the toggle is checked */
+/* Thank you panel is hidden until the toggle is checked. */
 .suggest-thanks {
   display: none;
 }
@@ -184,7 +202,7 @@ aside {
   color: var(--paper);
 }
 
-/* Flip which panel is visible when the checkbox is checked*/
+/* Flip which panel is visible when the checkbox is checked. */
 .suggest-box:has(.submit-toggle:checked) .suggest-form {
   display: none;
 }
