@@ -1,0 +1,37 @@
+/*About page float layout*/
+
+main {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: var(--space-3);
+}
+
+article figure {
+  float: left;
+  width: 11rem;
+  margin: 0 var(--space-2) var(--space-2) 0;
+  padding: var(--space-2);
+  border: var(--border);
+  background: var(--panel);
+}
+
+article figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Clear the float before the board section so headings don't wrap. */
+main > section {
+  clear: both;
+  margin-block-start: var(--space-3);
+}
+
+details {
+  margin-block-end: var(--space-2);
+  padding: var(--space-2);
+  border: var(--border);
+  background: var(--panel);
+}
+details summary { cursor: pointer; font-weight: 700; }
+details[open] summary { margin-block-end: var(--space-1); }

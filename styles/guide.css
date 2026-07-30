@@ -1,0 +1,51 @@
+main {
+  padding: var(--space-3);
+}
+
+main > article {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: var(--space-3);
+  border-inline-start: var(--rule);
+  background: var(--panel);
+}
+
+/* The family links list — each family is a mini-card with image + text. */
+.family-links {
+  list-style: none;
+  padding: 0;
+  margin-block: var(--space-2);
+}
+
+.family-links li {
+  margin-block-end: var(--space-2);
+  border: var(--border);
+  background: var(--paper);
+}
+
+.family-links a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  text-decoration: none;
+}
+
+.family-links a:hover { background: var(--panel); }
+
+.family-links img { display: block; flex-shrink: 0; }
+
+/* Give each family image a unique view-transition-name so it can morph
+   into the corresponding family page's hero image. */
+.family-links a[href="fresh.html"] img { view-transition-name: cheese-fresh; }
+.family-links a[href="soft.html"]  img { view-transition-name: cheese-soft; }
+.family-links a[href="blue.html"]  img { view-transition-name: cheese-blue; }
+.family-links a[href="hard.html"]  img { view-transition-name: cheese-hard; }
+
+aside {
+  max-width: var(--measure);
+  margin: var(--space-3) auto;
+  padding: var(--space-3);
+  background: var(--panel);
+  border-block-start: var(--border);
+}

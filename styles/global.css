@@ -1,18 +1,10 @@
-/* Reset, type, and color only — every layout rule lives in each demo's own
-   <style>. Both layers below lose to any unlayered rule, so demo styles
-   always override these without specificity fights. */
+/* Reset + type + color. Never layout. */
 
 @layer reset, base;
 
 @layer reset {
-  * {
-    box-sizing: border-box;
-  }
-
-  body,
-  figure {
-    margin: 0;
-  }
+  * { box-sizing: border-box; }
+  body, figure { margin: 0; }
 }
 
 @layer base {
@@ -24,8 +16,7 @@
     line-height: 1.5;
   }
 
-  h1,
-  h2 {
+  h1, h2, h3 {
     margin-block: 0 var(--space-2);
     line-height: 1.1;
     letter-spacing: -0.02em;
@@ -33,27 +24,39 @@
 
   h1 { font-size: var(--text-xl); }
   h2 { font-size: var(--text-l); }
+  h3 { font-size: var(--text-m); font-weight: 700; }
 
-  p {
-    margin-block: 0 var(--space-2);
-  }
+  p { margin-block: 0 var(--space-2); }
 
-  figcaption {
-    font-size: var(--text-s);
-  }
+  figcaption { font-size: var(--text-s); }
 
   a {
     color: var(--ink);
     text-decoration-color: var(--accent);
     text-decoration-thickness: var(--underline-width);
-
-    &:hover {
-      color: var(--accent);
-    }
   }
+  a:hover { color: var(--accent); }
 
   code {
     font-family: ui-monospace, "SF Mono", Menlo, monospace;
     font-size: 0.9em;
   }
+
+  ul, ol { padding-inline-start: var(--space-3); }
+
+  label { display: block; margin-block-end: var(--space-1); font-weight: 600; }
+  input, select, textarea {
+    font: inherit;
+    padding: var(--space-1);
+    border: var(--border);
+    background: var(--paper);
+  }
+  button {
+    font: inherit;
+    padding: var(--space-1) var(--space-2);
+    border: var(--border);
+    background: var(--panel);
+    cursor: pointer;
+  }
+  button:hover { background: var(--accent); color: var(--paper); }
 }

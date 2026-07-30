@@ -1,0 +1,50 @@
+/* Family pages: grid page scaffold (demo 08)
+   One shared file since all four family pages have identical structure. */
+
+body {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 100svh;
+}
+
+body > header { grid-area: header; }
+body > nav    { grid-area: nav; }
+body > main   { grid-area: main; }
+body > footer { grid-area: footer; }
+
+main {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: var(--space-3);
+}
+
+main .hero {
+  display: block;
+  width: 240px;
+  height: 240px;
+  margin: 0 auto var(--space-3);
+}
+
+/* Give each hero image a matching view-transition-name so it morphs
+   from the guide's family listing into this hero. */
+main .hero[src$="cheese-fresh.svg"] { view-transition-name: cheese-fresh; }
+main .hero[src$="cheese-soft.svg"]  { view-transition-name: cheese-soft; }
+main .hero[src$="cheese-blue.svg"]  { view-transition-name: cheese-blue; }
+main .hero[src$="cheese-hard.svg"]  { view-transition-name: cheese-hard; }
+
+/* Prev/next links at the bottom of each family page. */
+.prev-next {
+  display: flex;
+  justify-content: space-between;
+  margin-block-start: var(--space-3);
+  padding-block-start: var(--space-2);
+  border-block-start: var(--border);
+}
+
+.prev-next a { text-decoration: none; font-weight: 600; }
+.prev-next a:hover { color: var(--accent); }

@@ -1,0 +1,41 @@
+/* Join page — flex page scaffold (demo 06) + flex centering (demo 05).
+   Body is a flex column so the footer sticks; main flex-centers the card. */
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--space-3);
+}
+
+.join-card {
+  width: 100%;
+  max-width: 32rem;
+  padding: var(--space-3);
+  border: var(--border);
+  border-block-start: var(--rule);
+  background: var(--panel);
+}
+
+fieldset {
+  margin-block-end: var(--space-2);
+  padding: var(--space-2);
+  border: var(--border);
+}
+legend { font-weight: 600; padding-inline: var(--space-1); }
+
+dialog {
+  max-width: 28rem;
+  padding: var(--space-3);
+  border: var(--border);
+  border-block-start: var(--rule);
+  background: var(--paper);
+}
+dialog::backdrop { background: rgb(0 0 0 / 0.4); }

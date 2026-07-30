@@ -1,0 +1,63 @@
+/*Home page grid holy grail*/
+
+body {
+  --nav-width: 10rem;
+  --aside-width: 14rem;
+
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "nav    main   aside"
+    "footer footer footer";
+  grid-template-columns: var(--nav-width) 1fr var(--aside-width);
+  grid-template-rows: auto 1fr auto;
+  min-height: 100svh;
+}
+
+body > header { grid-area: header; }
+body > nav    { grid-area: nav; }
+body > main   { grid-area: main;  padding: var(--space-3); }
+body > aside  {
+  grid-area: aside;
+  padding: var(--space-3);
+  background: var(--panel);
+  border-inline-start: var(--border);
+}
+body > footer { grid-area: footer; }
+
+/* Nav becomes a vertical column on the home page's holy grail. */
+body > nav ul {
+  flex-direction: column;
+  padding: var(--space-2);
+}
+
+body > aside img {
+  display: block;
+  margin-block-end: var(--space-2);
+}
+
+/* Popover styling for the "Cheese Fact" card. */
+[popover] {
+  max-width: 24rem;
+  padding: var(--space-3);
+  border: var(--border);
+  border-block-start: var(--rule);
+  background: var(--paper);
+}
+[popover]::backdrop { background: rgb(0 0 0 / 0.3); }
+
+/* Collapse to one column on narrow screens. */
+@media (max-width: 40rem) {
+  body {
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "aside"
+      "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto auto;
+  }
+  body > aside { border-inline-start: none; border-block-start: var(--border); }
+  body > nav ul { flex-direction: row; }
+}

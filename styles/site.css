@@ -1,0 +1,65 @@
+/* Shared chrome: header, nav, footer. Also site-wide view transitions. */
+
+/* Header: logo + site title, side by side. */
+body > header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--panel);
+  border-block-end: var(--border);
+}
+
+body > header .site-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: var(--text-l);
+}
+
+body > header img {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+/* Nav: horizontal list of page links */
+body > nav ul {
+  display: flex;
+  gap: var(--space-3);
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
+  list-style: none;
+  background: var(--panel);
+  border-block-end: var(--border);
+}
+
+body > nav a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+body > nav a[aria-current="page"] {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: var(--underline-width);
+}
+
+/* Footer: centered small print with a top rule */
+body > footer {
+  padding: var(--space-2) var(--space-3);
+  border-block-start: var(--border);
+  background: var(--panel);
+  font-size: var(--text-s);
+  text-align: center;
+}
+
+/* Sitewide cross document view transitions */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
