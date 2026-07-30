@@ -1,10 +1,12 @@
 /* Design tokens only — no layout, no selectors beyond :root. */
 :root {
-  /* color */
-  --ink: #111;
-  --paper: #fff;
-  --panel: #f2f2f2;
-  --accent: #e30613;
+  /* colors: warm cheese shop look */
+  --ink: rgb(58, 42, 18);          
+  --paper: rgb(241, 220, 170);   /*Background & family description boxes background*/     
+  --panel: rgb(255, 144, 70);        
+  --panel-alt: rgb(133, 105, 14);   
+  --accent: rgb(245, 40, 0);     /*current section & left edge of main box*/  
+  --accent-dark: rgb(154, 52, 18);   
 
   /* space */
   --space-1: 0.5rem;
@@ -14,9 +16,10 @@
 
   /* border */
   --border-style: solid;
-  --border-width: 1px;
-  --rule-width: 4px;
+  --border-width: 2px;                      
+  --rule-width: 5px;
   --underline-width: 2px;
+  --radius: 0.5rem;                      
   --border: var(--border-width) var(--border-style) var(--ink);
   --rule: var(--rule-width) var(--border-style) var(--accent);
 
@@ -24,8 +27,12 @@
   --text-s: 0.875rem;
   --text-m: 1rem;
   --text-l: 1.5rem;
-  --text-xl: 2.25rem;
+  --text-xl: 2.5rem;
 
   /* line length */
   --measure: 62ch;
+
+  /* font stacks — NEW */
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Nunito", "Helvetica Neue", Arial, sans-serif;
 }
